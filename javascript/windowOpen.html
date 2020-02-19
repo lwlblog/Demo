@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="https://www.baidu.com/">百度</a>
+		<a href="https://www.sina.com.cn/">新浪</a>
+		<a href="https://www.taobao.com/">淘宝</a>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var links = document.getElementsByTagName("a");
+				for(var i = 0; i < links.length; i ++){
+					links[i].onclick = function(){
+						popUp(this.getAttribute("href"));
+						return false;
+					}
+				}
+			}
+			function popUp(winURL){
+				window.open(winURL,"popup","width = 320, height = 480");
+			}
+			
+		</script>
+	</body>
+</html>

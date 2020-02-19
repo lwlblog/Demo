@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+		<script src="vue/vue-router.js"></script>
+		<style type="text/css">
+			/*默认类名*/
+			.router-link-active{
+				color: red;
+			}
+			/*修改过的类名*/
+			.myactive{
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<router-link to="/login">登陆</router-link>
+			<router-link to="/register">注册</router-link>
+			<router-view></router-view>
+		</div>
+		<script type="text/javascript">
+			//登陆注册组件
+			var login = {
+				template: "<div>登陆页面</div>"
+			}
+			var register = {
+				template: "<div>注册页面</div>"
+			}
+			//创建路由对象
+			var routerObj = new VueRouter({
+				routes:[
+					{path:'/login',component:login},
+					{path:'/register',component:register}
+				],
+				// linkActiveClass 修改被选中的类名
+				linkActiveClass: 'myactive'
+			})
+			var vm = new Vue({
+				el: "#app",
+				data:{},
+				methods:{},
+				//将路由规则对象，注册到vm实例上，用来监听 URL 地址的变化来做相应的展示
+				router:routerObj,
+				watch:{
+					//this.$route.path
+					'$route.path':function(newVal, oldVal){
+						if(newVal === '/login'){
+							console.log('欢迎进入登陆界面')
+						}else if(newVal === '/register'){
+							console.log('欢迎进入注册界面')
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

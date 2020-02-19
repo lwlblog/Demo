@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 200px;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button:eq(0)').click(function(){
+					$('img').hide(300)
+				});
+				$('button:eq(1)').click(function(){
+					$('img').show(300)
+				});
+				$('button:eq(2)').click(function(){
+					$('img').toggle(300)
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<button>隐藏</button>
+		<button>显示</button>
+		<button>切换</button>
+		<br />
+		<img src="img/img04.jpg"/>
+	</body>
+</html>

@@ -1,0 +1,246 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-size:14px;
+}
+a{
+	color: #000;
+	text-decoration: none;
+}
+ul li{
+	list-style: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.top{
+	width: 100%;
+	height: 34px;
+	background-color: #f2f2f2;
+}
+.top .nav{
+	width: 1000px;
+	margin: 0 auto;
+}
+.top .nav ul li{
+	float: left;
+}
+.top .nav .fl li{
+	width: 90px;
+}
+.top .nav ul li{
+	text-align: center;
+	line-height: 34px;
+}
+.top .nav .fl .red{
+	background-color: #c7000b;
+}
+.top .nav .fl .red a{
+	color: #fff;
+}
+.top .nav .fr .sx{
+	margin: 0 15px;
+	color: #e5e5e5;
+}
+.top .nav .fr a:hover{
+	color: #d00f1b;
+}
+.center{
+	width: 100%;
+	height: 80px;
+	background-color: #fff;
+}
+.center .center_con{
+	width: 1000px;
+	margin: 0 auto;
+}
+.center .center_con .logo a{
+	display: block;
+	width: 314px;
+	height: 41px;
+	margin-top: 21px;
+	background: url(../img/logo.png) no-repeat;
+}
+.center .center_con .sousuo{
+	position: relative;
+	width: 250px;
+	height: 37px;
+	border: none;
+	margin-top: 23px;
+}
+.center .center_con .sousuo input{
+	position: absolute;
+	height: 35px;
+	width: 194px;
+	border: 1px solid #e5e5e5;
+	border-right: 0;
+	padding-left: 15px;
+	outline: none;
+	color: #999999;
+}
+.center .center_con .sousuo button{
+	position: absolute;
+	right: 0;
+	border: none;
+	width: 53px;
+	height: 37px;
+	outline: none;
+	background: url(../img/sousuo.png) no-repeat;
+}
+.con_top{
+	width: 100%;
+	height: 45px;
+	background-color: #c7000b;
+}
+.con_top ul{
+	width: 1000px;
+	margin: 0 auto;
+}
+.con_top ul li a{
+	display: block;
+	width: 165px;
+	height: 45px;
+	float: left;
+	color: #fff;
+	border-left: 1px solid red;
+	font-size: 18px;
+	text-align: center;
+	line-height: 45px;
+}
+.con_top ul li .fgx{
+	border-right: 1px solid red;
+}
+.con_top ul li a:hover{
+	background-color: #aa000b;
+}
+.con{
+	width: 100%;
+	height: 380px;
+	background: url(../img/banner.jpg) no-repeat -200px 0;
+}
+.con .con_left{
+	width: 1000px;
+	height: 344px;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+.con .con_left .left_l{
+	width: 270px;
+	height: 314px;
+	padding-top: 30px;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 5px;
+}
+.con .con_left .left_l .l_top,
+.con .con_left .left_l .l_center{
+	width: 238px;
+	height: 118px;
+	margin: 0 auto;
+}
+.con .con_left .left_l .l_bottom{
+	width: 238px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+.con .con_left .left_l .top1,
+.con .con_left .left_l .center1,
+.con .con_left .left_l .bottom1{
+	width: 238px;
+	height: 43px;
+	background: url(../img/login_btn1.png) no-repeat;
+}
+.con .con_left .left_l .center1{
+	background: url(../img/login_btn2.png) no-repeat;
+}
+.con .con_left .left_l .botttom1{
+	background: url(../img/btn1.png) no-repeat;
+}
+.con .con_left .left_l .a1 a{
+	color: #fff;
+	font-size: 16px;
+	line-height: 43px;
+	padding-left: 60px;
+}
+.con .con_left .left_l table{
+	text-align: center;
+	margin-top: 5px;
+}
+.con .con_left .left_l table td{
+	width: 70px;
+}
+.con .con_left .left_l table a{
+	font-size: 12px;
+}
+.con .con_left .left_l table a:hover{
+	color: #d00f1b;
+}
+.gonggao{
+	width: 100%;
+	height: 42px;
+	border-bottom: 1px solid #E5E5E5;
+	background-color: #F2F2F2;
+}
+.gonggao .gg_con{
+	width: 1000px;
+	margin: 0 auto;
+	line-height: 42px;
+}
+.gonggao .gg_con i{
+	display: inline-block;
+	width: 23px;
+	height: 21px;
+	margin-top: 10px;
+	background: url(../img/icon_lb.png) no-repeat;
+}
+.gonggao .gg_con .sp1{
+	font-size: 16px;
+	margin-left: 10px;
+}
+.gonggao .gg_con span{
+	margin-left: 20px;
+}
+.bottom{
+	width: 100%;
+	height: 200px;
+	background-color: #F2F2F2;
+}
+.bottom .bot_con{
+	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+}
+.bottom .bot_con ul li{
+	float: left;
+	margin: 40px 64px;
+}
+.bottom .bot_con ul li i{
+	display: block;
+	width: 70px;
+	height: 70px;
+	background: url(../img/serveTop1_1.png) no-repeat;
+}
+.bottom .bot_con ul .li2 i{
+	background: url(../img/serveTop2_1.png) no-repeat;
+}
+.bottom .bot_con ul .li3 i{
+	background: url(../img/serveTop3_1.png) no-repeat;
+}
+.bottom .bot_con ul .li4 i{
+	background: url(../img/serveTop4_1.png) no-repeat;
+}
+.bottom .bot_con ul .li5 i{
+	background: url(../img/serveTop5_1.png) no-repeat;
+}
+.bottom .bot_con ul li h2{
+	font-size: 18px;
+	font-weight: 500;
+	padding: 8px 0;
+}
+.bottom .bot_con ul li h3{
+	color: #686868;
+	font-weight: normal;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+				/*overflow: hidden;*/
+			}
+			body{
+				background-color: #000000;
+			}
+			.box{
+				padding: 5px 0 0 5px;
+				width: 820px;
+				margin: 100px auto;
+				border: 2px solid #333;
+				overflow: hidden;
+			}
+			img{
+				display: block;
+				width: 200px;
+			}
+			li{
+				margin: 0 5px 5px 0;
+				float: left;
+			}
+			
+			/*消除浮动,如果知道图片宽高可以直接给li添加固定宽高，此时就不需要清除浮动*/
+			li:nth-child(4n+1){
+				clear: both;
+			}
+			
+			
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('li').hover(function(){
+					$(this).siblings().stop().fadeTo(200,0.3)
+				},function(){
+					$('li').stop().fadeTo(200,1)
+				})
+				$('li').click(function(){
+					$(this).children().stop().slideUp().slideDown()
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li><img src="img/img04.jpg" alt="" /></li>
+				<li><img src="img/img05.jpg" alt="" /></li>
+				<li><img src="img/img06.jpg" alt="" /></li>
+				<li><img src="img/img07.jpg" alt="" /></li>
+				<li><img src="img/img04.jpg" alt="" /></li>
+				<li><img src="img/img05.jpg" alt="" /></li>
+				<li><img src="img/img06.jpg" alt="" /></li>
+				<li><img src="img/img07.jpg" alt="" /></li>
+				<li><img src="img/img04.jpg" alt="" /></li>
+				<li><img src="img/img05.jpg" alt="" /></li>
+				<li><img src="img/img06.jpg" alt="" /></li>
+				<li><img src="img/img07.jpg" alt="" /></li>
+			</ul>
+		</div>
+	</body>
+</html>

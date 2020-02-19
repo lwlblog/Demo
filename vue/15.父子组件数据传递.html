@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<tmp1 :parentmsg="msg"></tmp>
+		</div>
+		<template id="tmp">
+			<div>tmp组件--{{parentmsg}}--{{msgdata}}</div>
+		</template>
+		<script type="text/javascript">
+			//创建vue对象
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: "vm的数据"
+				},
+				methods:{},
+				components:{
+					tmp1:{
+						data(){
+							return {
+								msgdata:'tmp1数据'
+							}
+						},
+						template: "#tmp",
+						props:['parentmsg']
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

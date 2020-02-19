@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>linear-gradient</title>
+</head>
+<body>
+    <canvas id="canvas" style="display: block; border: 2px solid #ccc; margin: 30px auto 0;">
+        当前浏览器不支持canvas，请更换浏览器后再试
+    </canvas>
+    <script>
+        window.onload = function () {
+            /** @type {HTMLCanvasElement} */
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d')
+            // 画布宽高
+            canvas.width = 700
+            canvas.height = 700
+
+            var linearGrad = context.createLinearGradient(0, 0, 700, 700)
+            linearGrad.addColorStop(0.0, 'red')
+            linearGrad.addColorStop(0.25, 'yellow')
+            linearGrad.addColorStop(0.5, 'green')
+            linearGrad.addColorStop(0.75, 'blue')
+            linearGrad.addColorStop(1.0, 'coral')
+            context.fillStyle = linearGrad
+            context.fillRect(0, 0, 700, 700)
+        }
+    </script>
+</body>
+</html>

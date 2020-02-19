@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>仿百度input搜索</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 640px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+			
+			input{
+				float: left;
+				display: block;
+			}
+			input[type='text']{
+				width: 480px;
+				height: 20px;
+				outline: none;
+				padding: 9px 48px 7px 9px;
+				border: 1px solid rgb(204,204,204);
+				border-right: none;
+			}
+			input[type='button']{
+				width: 102px;
+				height: 38px;
+				border: none;
+				outline: none;
+				background-color: #38f;
+				color: #fff;
+			}
+			input[type='button']:hover{
+				background-color: #317ef3;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<form action="" method="post">
+				<input type="text" id="tex" value=""/>
+				<input type="button" id="but" value="百度一下" />
+			</form>
+		</div>
+		
+		<script type="text/javascript">
+			var tex = document.querySelector('#tex');
+			tex.onfocus = function(){
+				tex.style.borderColor = '#38f'
+			}
+			tex.onblur = function(){
+				tex.style.borderColor = 'rgb(204,204,204)'
+			}
+		</script>
+	</body>
+</html>

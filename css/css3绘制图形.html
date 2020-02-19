@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>css3绘制图形</title>
+  <style type="text/css">
+	div{
+		margin: 50px;
+		float: left;
+	}
+	/* 椭圆 */
+	.tuoyuan{
+		width: 200px;
+		height: 100px;
+		background-color: #e9337c;
+		border-radius: 100px/50px;
+	}
+	/* 三角形 */
+	.sanjiaoxing{
+		width: 0;
+		height: 0;
+		border-bottom: 140px solid red;
+		border-left: 70px solid transparent;
+		border-right: 70px solid transparent;
+	}
+	/* 倒三角 */
+	.daosanjiao{
+		width: 0;
+		height: 0;
+		border-top: 140px solid blue;
+		border-left: 70px solid transparent;
+		border-right: 70px solid transparent;
+	}
+	/* 菱形 */
+	.lingxing{
+		width: 120px;
+		height: 120px;
+		background-color: #1eff00;
+		transform: rotate(-45deg);
+		transform-origin: 0 100%;
+		margin: 70px 0 0 100px;
+	}
+	/* 梯形 */
+	.tixing{
+		width: 80px;
+		height: 0;
+		border-bottom: 150px solid yellow;
+		border-left: 75px solid transparent;
+		border-right: 75px solid transparent;
+	}
+	/* 平行四边形 */
+	.pingxingsibianxing{
+		width: 160px;
+		height: 100px;
+		background: #8734f7;
+		transform: skew(30deg);
+	}
+	/* 五角星 */
+	.wujiaoxing{
+		width: 0;
+		height: 0;
+		margin: 50px;
+		position: relative;
+		border-right: 100px solid transparent;
+		border-bottom: 70px solid #fc2e5a;
+		border-left: 100px solid transparent;
+		transform: rotate(35deg);
+	}
+	.wujiaoxing::before{
+		height: 0;
+		width: 0;
+		position: absolute;
+		display: block;
+		top: -47px;
+		left: -65px;
+		border-bottom: 80px solid #fc2e5a;
+		border-left: 30px solid transparent;
+		border-right: 30px solid transparent;
+		content: '';
+		transform: rotate(-35deg);
+	}
+	.wujiaoxing::after{
+		height: 0;
+		width: 0;
+		position: absolute;
+		top: 3px;
+		left: -105px;
+		border-bottom: 70px solid #fc2e5a;
+		border-left: 100px solid transparent;
+		border-right: 100px solid transparent;
+		content: '';
+		transform: rotate(-70deg);
+	}
+	/* 六角星 */
+	.liujiaoxing{
+		width: 0;
+		height: 0;
+		position: relative;
+		border-bottom: 100px solid #fc2e5a;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+		margin: 10px auto;
+	}
+	.liujiaoxing::after{
+		content: '';
+		width: 0;
+		height: 0;
+		display: block;
+		position: absolute;
+		top: 32px;
+		left: -50px;
+		border-top: 100px solid #fc2e5a;
+		border-left: 50px solid transparent;
+		border-right: 50px solid transparent;
+	}
+	/* 蛋型 */
+	.danxing{
+		width: 136px;
+		height: 190px;
+		background: #ffc000;
+		border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+	}
+	
+  </style>
+ </head>
+ <body>
+	<div class="tuoyuan"></div>
+	<div class="sanjiaoxing"></div>
+	<div class="daosanjiao"></div>
+	<div class="lingxing"></div>
+	<div class="tixing"></div>
+	<div class="pingxingsibianxing"></div>
+	<div class="wujiaoxing"></div>
+	<div class="liujiaoxing"></div>
+	<div class="danxing"></div>
+ </body>
+</html>

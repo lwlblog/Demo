@@ -1,0 +1,209 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+body{
+	font: 12px arial;
+}
+.wrapper{
+	/*position: relative;*/
+	height: 663px;
+	width: 100%;
+	min-width:1000px;
+	min-height: 560px;
+	display: flex;
+}
+.top_nav{
+	position: relative;
+	height: 32px;
+	width: 100%;
+	border-bottom: 1px solid #ebebeb;
+}
+.top_nav .nav_l{
+	position: absolute;
+	display: inline;
+	margin-right: 500px;
+	float: left;
+	height: 32px
+	/*border: 1px solid red;*/
+}
+.top_nav .nav_l .left_l{
+	float: left;
+	display: block;
+	margin: 7px 0 0 15px;
+	height: 20px;
+}
+.top_nav .nav_l .left_l li{
+	display: inline-block;
+	line-height: 20px;
+	font-size: 12px;
+	color: #000000;
+}
+.top_nav .nav_l .left_l .wendu{
+	margin-right: 9px;
+}
+.top_nav .nav_l .left_l .fgf{
+	display: inline-block;
+	margin-right: 11px;
+	color: #555;
+	vertical-align: bottom;
+}
+.top_nav .nav_l .left_l .tianqi{
+	width: 18px;
+	height: 18px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 3px;
+	background-image: url(../img/a2.png);
+}
+.top_nav .nav_l .left_l .qd{
+	color: #badc00;
+	font-weight: bold;
+	margin-right: 7px;
+}
+.top_nav .nav_l .left_l .qd_num{
+	margin-right: 7px;
+}
+
+.top_nav .nav_l .left_r{
+	float: right;
+	height: 32px;
+	margin-left: auto;
+}
+.top_nav .nav_l .left_r li{
+	float: left;
+}
+.top_nav .nav_l .left_l li{
+	float: left;
+}
+.top_nav .nav_l .left_r a{
+	display: inline-block;
+	margin-right: 19px;
+	line-height: 32px;
+	color: #555;
+	font-size: 12px;
+}
+.top_nav .nav_r{
+	height: 32px;
+	float: right;
+	/*border: 1px solid black;*/
+}
+.top_nav .nav_r li{
+	float: left;
+	margin-left: 21px;
+}
+.top_nav .nav_r a{
+	display: inline-block;
+	font-size: 13px;
+	height: 32px;
+	line-height: 32px;
+	color: #555;
+	font-weight: bold;
+}
+.top_nav .nav_r .typ{
+	font-weight: normal;
+}
+.top_nav .nav_r .gdcp{
+	background-color: #398bfb;
+	color: white;
+	text-align: center;
+	font-size: 13px;
+	width: 86px;
+	height: 32px;
+	line-height: 32px;
+}
+.top_nav .nav_r .gdcp:hover{
+	color: black;
+	background-color: whitesmoke;
+}
+/*顶部导航栏结束*/
+.center{
+	position: absolute;
+	width: 641px;
+	height: 293px;
+	left: 50%;
+	top: 0;
+	margin-left: -320.5px;
+	/*border: 1px solid red;*/
+}
+.center .logo{
+	position: absolute;
+	width: 641px;
+	height: 181px;
+	top: 72px;
+	left: 0;
+	/*border: 1px solid black;*/
+}
+.center .logo img{
+	/*position: static;*/
+	display: block;
+	margin: 33px auto 0 auto;
+	width: 270px;
+	height: 129px;
+}
+.center .sousuo{
+	position: absolute;
+	width: 641px;
+	height: 40px;
+	top: 253px;
+	left: 0;
+	/*border: 1px solid blue;*/
+}
+.center .sousuo .text{
+	display: inline-block;
+	width: 528px;
+	height: 20px;
+	padding: 9px 7px;
+	font: 16px arial;
+	border: 1px solid #b8b8b8;
+	border-bottom: 1px solid #ccc;
+	border-right: 0;
+}
+.center .sousuo .text:hover{
+	border-color: #38f;
+}
+.center .sousuo .text input{
+	display: inline-block;
+	width: 480px;
+	border: none;
+	outline: none;
+	box-shadow: none;
+}
+.center .sousuo .fdj{
+	position: relative;
+	display: inline-block;
+	width: 20px;
+	height: 16px;
+	left: -35px;
+	top: 3px;
+	/*z-index: 100;*/
+	background: #fff url(../img/fdj.png) no-repeat;
+}
+.center .sousuo .but button{
+	display: inline-block;
+	position: absolute;
+	width: 102px;
+	height: 40px;
+	line-height: 40px;
+	padding: 1px 0;
+	right: 0;
+	border: none;
+	background-color: #38f;
+	color: white;
+	font-size: 16px;
+	/*border: 1px solid red;*/
+}
+.text0{
+	position: absolute;
+	width: 386px;
+	top: 582px;
+	left: 50%;
+	margin-left: -193px;
+}
+.text0 a{
+	color: #999;
+}
+.text0 .aa{
+	margin-right: 10px;
+}

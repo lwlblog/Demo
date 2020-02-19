@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<tmp1 :parentmsg="msg" @func="show"></tmp>
+		</div>
+		<template id="tmp">
+			<div>
+				<p>tmp组件--{{parentmsg}}--{{msgdata}}</p>
+				<input type="button" value="调用父方法" @click="myclick" />
+			</div>
+		</template>
+		<script type="text/javascript">
+			//创建vue对象
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					msg: "vm的数据",
+					num: 123
+				},
+				methods:{
+					show(dat){
+						console.log(this.msg + "vm上的show方法" + this.num + dat)
+					}
+				},
+				components:{
+					tmp1:{
+						data(){
+							return {
+								msgdata:'tmp1数据'
+							}
+						},
+						methods:{
+							myclick(){
+								this.$emit('func',this.msgdata)
+							}
+						},
+						template: "#tmp",
+						props:['parentmsg']
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

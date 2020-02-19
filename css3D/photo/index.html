@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D相册</title>
+		<style type="text/css">
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				margin: 0;
+				background-color: #000;
+			}
+			ul{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				height: 100%;
+				perspective: 800px;
+			}
+			.box{
+				width: 240px;
+				height: 160px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -120px;
+				margin-top: -80px;
+				transform: rotateX(-15deg) rotateY(0);
+				transform-style: preserve-3d;
+			}
+			.box ul li{
+				width: 230px;
+				height: 150px;
+				position: absolute;
+				transition: 1s ease-out;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="box">
+				<ul>
+					<li><img src="img/009.jpg"/></li>
+					<li><img src="img/002.jpg"/></li>
+					<li><img src="img/003.jpg"/></li>
+					<li><img src="img/004.jpg"/></li>
+					<li><img src="img/005.jpg"/></li>
+					<li><img src="img/006.jpg"/></li>
+					<li><img src="img/007.jpg"/></li>
+					<li><img src="img/008.jpg"/></li>
+					<li><img src="img/001.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var oBox = document.getElementsByClassName('box')[0];
+			var aLi = oBox.getElementsByTagName('li');
+			var rotateDeg = 360 / aLi.length;
+			var lastX,lastY,nowX,nowY,minusX,minusY;
+			//盒子旋转初始值
+			var roX = -15;
+			var roY = 0;
+			//完善布局
+			setTimeout(function(){
+				for(var i = 0; i < aLi.length; i ++){
+					aLi[i].style.transform = 'rotateY(' + (i * rotateDeg) + 'deg) translateZ(380px)';
+				}
+			},300);
+			
+			//拖拽
+			document.onmousedown = function(e){
+				//获取鼠标拖动的变化值（作为拖动开始的初始值）
+				lastX = e.clientX;
+				lastY = e.clientY;
+				this.onmousemove = function(e){
+					//获取鼠标拖动的变化值（作为拖动开始的目标值）
+					nowX = e.clientX;
+					nowY = e.clientY;
+					//距离的差距
+					minusX = nowX - lastX;
+					minusY = nowY - lastY;
+					roX -= minusY * 0.2;
+					roY += minusX * 0.1;
+					oBox.style.transform = 'rotateX(' + roX + 'deg) rotateY(' + roY + 'deg)';
+					//不断更新拖动的初始值
+					lastX = nowX;
+					lastY = nowY;
+				}
+				this.onmouseup = function(){
+					this.onmousemove = null;
+				}
+				return false;
+			}
+		</script>
+	</body>
+</html>

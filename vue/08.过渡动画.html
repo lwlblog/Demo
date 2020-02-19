@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+		<style type="text/css">
+			.slide-fade-enter-active {
+			  transition: all .3s ease;
+			}
+			.slide-fade-leave-active {
+			  transition: all .8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+			}
+			.slide-fade-enter, .slide-fade-leave-to
+			/* .slide-fade-leave-active for below version 2.1.8 */ {
+			  transform: translateX(10px);
+			  opacity: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="app">
+			<button v-on:click="show = !show">Toggle</button>
+			<transition name="slide-fade">
+				<p v-if="show">hello</p>
+			</transition>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '.app',
+				data: {
+					show: true
+				}
+			})
+		</script>
+	</body>
+
+</html>

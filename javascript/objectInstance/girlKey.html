@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 79px;
+				height: 108px;
+				background: url(img/xiaonvhai.png) 0px 0px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//随机数
+			function random(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			function Girl() {
+				this.x = 0; //位置
+				this.y = 0;
+				this.state = 0; //状态0~7
+				this.speed = random(3, 4); //随机速度
+				this.dom = document.createElement("div");
+				document.body.appendChild(this.dom);
+				var self = this;
+				document.onkeydown = function(evt) {
+					switch(evt.keyCode) {
+						case 37: //左
+							self.move(1,-108);
+							break;
+						case 38: //上
+							self.move(2,-324);
+							break;
+						case 39: //右
+							self.move(3,-216);
+							break;
+						case 40: //下
+							self.move(4,0);
+							break;
+					}
+				}
+			}
+			//原型方法
+			Girl.prototype.move = function(n, rig) {
+				clearInterval(this.timer);
+				var self = this;
+				self.timer = setInterval(function() {
+					switch(n) {
+						case 1:
+							self.x -= self.speed;
+							break;
+						case 2:
+							self.y -= self.speed;
+							break;
+						case 3:
+							self.x += self.speed;
+							break;
+						case 4:
+							self.y += self.speed;
+							break;
+					}
+					self.state++;
+					if(self.state > 7) {
+						self.state = 0;
+					}
+					self.dom.style.backgroundPosition = -79 * self.state + "px " + rig + "px";
+					self.dom.style.left = self.x + "px";
+					self.dom.style.top = self.y + "px";
+				}, 100);
+			}
+			var a = new Girl();
+		</script>
+	</body>
+
+</html>

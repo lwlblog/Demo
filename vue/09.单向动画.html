@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+		<style type="text/css">
+			p{
+				width: 30px;
+				height: 30px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="app">
+			<button v-on:click="show = !show">Toggle</button>
+			<transition
+				v-on:before-enter="beforeEnter"
+				v-on:enter="enter"
+				v-on:after-enter="afterEnter"
+			>
+				<p v-if="show"></p>
+			</transition>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el: '.app',
+				data: {
+					show: false
+				},
+				methods: {
+					beforeEnter(el){
+						el.style.transform = "translate(0,0)"
+					},
+					enter(el,done){
+						el.offsetWidth//动画效果
+						el.style.transform = "translate(150px,450px)"
+						el.style.transition = "1s"
+						//done()相当于调用afterEnter函数
+						done()
+					},
+					afterEnter(el){
+						this.show = !this.show
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 79px;
+				height: 108px;
+				background: url(img/xiaonvhai.png) 0px -216px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//随机数
+			function random(min, max) {
+				return Math.random() * (max - min) + min;
+			}
+
+			function Girl() {
+				this.x = 0; //位置
+				this.state = 0; //状态0~7
+				this.speed = random(1, 10); //随机速度
+				this.isMove = true; //暂停开关
+				this.dom = document.createElement("div");
+				document.body.appendChild(this.dom);
+				var self = this;
+				this.dom.onclick = function() {
+					if(self.isMove) {
+						clearInterval(self.timer);
+						self.isMove = false;
+					} else {
+						self.move();
+						self.isMove = true;
+					}
+				}
+				this.move();
+			}
+			//原型方法
+			Girl.prototype.move = function() {
+				var self = this;
+				self.timer = setInterval(function() {
+					self.x += self.speed;
+					self.state++;
+					if(self.state > 7) {
+						self.state = 0;
+					}
+					self.dom.style.backgroundPosition = -79 * self.state + "px -216px";
+					self.dom.style.left = self.x + "px";
+				}, 100);
+			}
+			var a = new Girl();
+		</script>
+	</body>
+
+</html>

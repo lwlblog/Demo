@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				text-align: center;
+				line-height: 30px;
+				width: 300px;
+				list-style: none;
+			}
+			.all{
+				margin: 200px auto;
+			}
+			.all>li{
+				width: 100px;
+				position: relative;
+				float: left;
+				background-color: #09f;
+			}
+			.all>li ul{
+				display: none;
+				position: absolute;
+				left: 0;
+				top: 30px;
+			}
+			.all ul>li{
+				width: 100px;
+				height: 30px;
+				background-color: #38f;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+//			$(function(){
+//				$('.all>li').hover(function(){
+//					$(this).children().stop().slideDown()
+//				},function(){
+//					$(this).children().stop().slideUp()
+//				})
+//			})
+
+			//简写
+			$(function(){
+				$('.all>li').hover(function(){
+					$(this).children().stop().slideToggle()
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul class="all">
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

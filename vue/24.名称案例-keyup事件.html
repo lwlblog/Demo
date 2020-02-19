@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="firstname" @keyup="addName" /> +
+			<input type="text" v-model="lastname" @keyup="addName" /> =
+			<input type="text" v-model="endname" />
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					firstname:'',
+					lastname:'',
+					endname:''
+				},
+				methods:{
+					//计算属性，把名称直接当作属性来使用
+					addName(){
+						this.endname = this.firstname + '-' + this.lastname
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

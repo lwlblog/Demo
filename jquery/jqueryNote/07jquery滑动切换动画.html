@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 400px;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button:eq(0)').click(function(){
+					$('img').slideUp(300)
+				});
+				$('button:eq(1)').click(function(){
+					$('img').slideDown(300)
+				});
+				$('button:eq(2)').click(function(){
+					$('img').slideToggle(300)
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<button>滑动隐藏</button>
+		<button>滑动显示</button>
+		<button>滑动切换</button>
+		<br />
+		<img src="img/img04.jpg"/>
+	</body>
+</html>

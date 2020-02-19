@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 800px;
+				height: 400px;
+				background-color: #ccc;
+				border: 1px solid #000;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button:eq(0)').click(function(){
+					$('div').html('<h1>标题</h1><p>段落</p>')
+				});
+				$('button:eq(1)').click(function(){
+					alert($('div').html())
+				});
+				$('button:eq(2)').click(function(){
+					alert($('div').text())
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<button>修改</button>
+		<button>访问全部内容</button>
+		<button>访问文本内容</button>
+		<div></div>
+	</body>
+</html>

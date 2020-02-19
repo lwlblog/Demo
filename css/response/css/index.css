@@ -1,0 +1,151 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style-type: none;
+}
+html,body{
+	width: 100%;
+}
+img{
+	display: block;
+}
+.top{
+	height: 250px;
+	background: url(../img/top-bg.png) no-repeat center;
+	background-size: cover;
+}
+.top a{
+	color: #fff;
+}
+.top_t{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 18px 0 56px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;
+	background-color: rgba(0,0,0,0.5);
+}
+.top_t .menu{
+	display: none;
+}
+.top_r a{
+	display: block;
+	font-size: 13px;
+}
+.top_l img{
+	height: 50px;
+}
+.top_c ul{
+	width: 446px;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.main{
+	width: 100%;
+}
+.main_top{
+	width: 100%;
+	display: flex;
+	padding: 10px 10px 15px;
+	box-sizing: border-box;
+}
+.main_top>div{
+	width: 50%;
+}
+.main_top img{
+	width: 100%;
+}
+.main_left{
+	padding-right: 10px;
+	box-sizing: border-box;
+}
+.main_right{
+	display: flex;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.main_right a{
+	flex: 1;
+}
+.main_right a:first-child{
+	padding-right: 8px;
+}
+.main_right a:last-child{
+	padding-left: 8px;
+}
+
+
+.main_bottom{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.main_bottom dl{
+	padding: 5px;
+	width: 23%;
+	box-shadow: 0 0 1px 2px #ccc;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+.main_bottom img{
+	width: 100%;
+}
+.main_bottom dd{
+	line-height: 26px;
+	font-size: 12px;
+	color: #000;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+@media screen and (min-width: 750px) and (max-width: 1020px) {
+    .main_bottom dl{
+		width: 30%;
+	}
+}
+@media screen and (min-width: 450px) and (max-width: 749px) {
+    .main_bottom dl{
+		width: 48%;
+	}
+}
+@media screen and (max-width: 449px) {
+    .main_bottom dl{
+		width: 98%;
+	}
+}
+@media screen and (max-width: 749px) {
+    .main_top{
+    	flex-wrap: wrap;
+    }
+    .main_top>div{
+    	width: 100%;
+    }
+    .main_left{
+    	padding-right: 0;
+    	margin-bottom: 10px;
+    }
+    .main_right{
+    	padding-left: 0;
+    }
+    .top_c{
+    	display: none;
+    }
+    .top_t .menu{
+    	display: block;
+    }
+    .top_t{
+    	padding-left: 30px;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click="showtext">按钮</button>
+			<p ref="myp">这是p标签上的内容</p>
+			<br />
+			<tmp ref="mytmp"></tmp>
+		</div>
+		<script type="text/javascript">
+			var tmp = {
+				template:"<div>这是tmp组件</div>",
+				data(){
+					return {
+						msg:'tmp上的msg数据'
+					}
+				},
+				methods:{
+					tmpfunc(dat){
+						alert('tmp上的方法'+dat)
+					}
+				}
+			}
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					vmdat: "vm上的数据"
+				},
+				methods:{
+					showtext(){
+						//console.log(document.querySelector("#app p").innerText);
+						console.log(this.$refs.myp.innerText);
+						//操作子组件上的数据
+						console.log(this.$refs.mytmp.msg);
+						//调用子组件上的方法并且传入vm实例的数据
+						this.$refs.mytmp.tmpfunc(this.vmdat);
+					}
+				},
+				components:{
+					tmp
+				}
+			})
+		</script>
+	</body>
+</html>

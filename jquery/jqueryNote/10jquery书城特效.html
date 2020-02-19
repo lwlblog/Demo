@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 266px;
+				border: 1px solid #ccc;
+				margin: 100px auto;
+				list-style-type: none;
+			}
+			div{
+				display: none;
+				width: 100%;
+				height: 100px;
+				background-image: url(img/img04.jpg);
+				background-size: auto 100px;
+			}
+			p{
+				color: #333;
+				font-size: 14px;
+			}
+			li{
+				padding: 5px;
+				border-bottom: 1px solid #ccc;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+//			$(function(){
+//				$('ul li').mousemove(function(){
+//					$(this).children('p').hide()
+//					$(this).children('div').show()
+//				});
+//				$('ul li').mouseout(function(){
+//					$(this).children('p').show()
+//					$(this).children('div').hide()
+//				});
+//			})
+
+			//简写
+			$(function(){
+				$('ul li').hover(function(){
+					$(this).children().toggle()//悬浮在上面时和移走后同一个指令
+				})
+			})
+
+//			$(function(){
+//				$('ul li').hover(function(){
+//					$(this).children().toggle()//悬浮在上面时
+//				},function(){
+//					$(this).children().toggle()//移走后
+//				})
+//			})
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<ul class="box">
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+			<li>
+				<p>书名书名书名</p>
+				<div></div>
+			</li>
+		</ul>
+	</body>
+</html>

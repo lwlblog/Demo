@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue/vue.min.js"></script>
+    <title>Document</title>
+    <style>
+        table {
+            text-align: center;
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        tr {
+            width: 100%;
+            height: 50px;
+        }
+
+        th {
+            border: 1px solid #ddd;
+            background-color: aquamarine;
+        }
+
+        td {
+            border: 1px solid #ddd;
+        }
+
+        tr:nth-of-type(2n-1) {
+            background-color: azure;
+        }
+
+        input[type="text"] {
+            width: 260px;
+            height: 30px;
+            padding-left: 10px;
+        }
+
+        input[type="button"] {
+            width: 50px;
+            height: 34px;
+            background-color: #38f;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <label>
+            id:
+            <input type="text" v-model="id">
+        </label>
+        <label>
+            name:
+            <input type="text" v-model="name" @keyup.enter="add">
+        </label>
+        <label>
+            <input type="button" value="添加" @click="add">
+        </label>
+        <label>
+            检索:
+            <input type="text" v-model="key" v-focus v-color="'red'">
+        </label>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>time</th>
+                <th>delete</th>
+            </tr>
+            <tr v-for="item in search(key)" :key="item.id">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.time | timeData()}}</td>
+                <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        //定义全局过滤器,默认空字符
+        Vue.filter('timeData', function (date, format='') {
+            var dat = new Date(date);
+            var y = dat.getFullYear();
+            var m = dat.getMonth().toString().padStart(2,'0');
+            var d = dat.getDate().toString().padStart(2,'0');
+            if(format.toLowerCase() === 'yyyy-mm-dd'){
+                return `${y}-${m}-${d}`;
+            }else{
+                var h = dat.getHours().toString().padStart(2,'0');
+                var min = dat.getMinutes().toString().padStart(2,'0');
+                var s = dat.getSeconds().toString().padStart(2,'0');
+                return `${y}-${m}-${d} ${h}:${min}:${s}`;
+            }
+        });
+        //全局自定义指令 v-focus
+        Vue.directive('focus',{
+            bind: function(el){},
+            //当被绑定的元素插入到DOM中去，获取焦点
+            inserted: function(el){
+                el.focus();
+            },
+            undate: function(el){}
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                id: '',
+                name: '',
+                key: '',
+                list: [
+                    { id: '001', name: '张三', time: new Date() },
+                    { id: '002', name: '李四', time: new Date() },
+                    { id: '003', name: '王五', time: new Date() },
+                    { id: '004', name: '赵六', time: new Date() }
+                ]
+            },
+            methods: {
+                add() {
+                    this.list.push({ id: this.id, name: this.name, time: new Date() })
+                },
+                del(id) {
+                    this.list.some((item, i) => {
+                        if (item.id == id) {
+                            this.list.splice(i, 1);
+                            return true;
+                        }
+                    })
+                },
+                search(key) {
+                    var newList = [];
+                    this.list.forEach(item => {
+                        if (item.name.indexOf(key) != -1) {
+                            newList.push(item)
+                        }
+                    });
+                    return newList;
+                }
+            },
+            directives:{
+                color:{
+                    bind: function (el,binding){
+                        el.style.color = binding.value;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

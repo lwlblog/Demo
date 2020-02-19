@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--方式一，两个以上无法使用-->
+			<!--
+			<a href="#" @click="flag=true">登陆</a>
+			<a href="#" @click="flag=false">注册</a>
+			<land v-if="flag"></land>
+			<logon v-else="flag"></logon>
+			-->
+			
+			<!--方式二-->
+			<a href="#" @click.prevent="comName='land'">登陆</a>
+			<a href="#" @click.prevent="comName='logon'">注册</a>
+			<!--vue提供了 component 来展示对应名称的组件，component 是一个占位符，is 属性用来指定要展示的组件名称-->
+			<!--注意 :is 属性是一个字符串-->
+			<component :is="comName"></component>
+		</div>
+		<script type="text/javascript">
+			
+			Vue.component('land',{
+				template:'<div>登陆页面</div>',
+			});
+			Vue.component('logon',{
+				template:'<div>注册页面</div>',
+			});
+			//创建vue对象
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					flag: true,
+					comName:"land"
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

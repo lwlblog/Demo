@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>小熊</title>
+		<style type="text/css">
+			.xiaoxiong{
+				position: relative;
+				width: 300px;
+				height: 800px;
+				top: 50px;
+				left: 100px;
+			}
+			.head {
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				background-color: #f6d318;
+				border-radius: 50%;
+				z-index: 0;
+			}
+			
+			.face {
+				position: absolute;
+				width: 200px;
+				height: 220px;
+				top: 50%;
+				left: 50%;
+				margin-left: -100px;
+				margin-top: -100px;
+				z-index: 1;
+			}
+			
+			.ears_l {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				top: 0;
+				left: 0;
+				background-color: #f6d318;
+				border-radius: 50%;
+				z-index: -1;
+			}
+			.ears_r {
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				top: 0;
+				right: 0;
+				width: 100px;
+				height: 100px;
+				background-color: #f6d318;
+				border-radius: 50%;
+			}
+			.eye{
+				position: relative;
+				width: 200px;
+				height: 80px;
+			}
+			.eye .eye_l{
+				position: absolute;
+				width: 60px;
+				height: 80px;
+				top: 0;
+				left: 0;
+				/*border: 1px solid black;*/
+			}
+			.eye .eye_l div,
+			.eye .eye_r div{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				bottom: 0;
+				right: 0;
+				background-color: black;
+				border-radius: 50%;
+			}
+			.eye .eye_r div{
+				left: 0;
+			}
+			.eye .eye_r{
+				position: absolute;
+				width: 60px;
+				height: 80px;
+				top: 0;
+				right: 0;
+				/*border: 1px solid black;*/
+			}
+			.nose_mouth{
+				position: absolute;
+				width: 160px;
+				height: 90px;
+				top: 120px;
+				left: 18px;
+				background-color: #986b2a;
+				border-radius: 80px/45px;
+			}
+			.nose_mouth .nose{
+				position: absolute;
+				width: 50px;
+				height: 30px;
+				top: 10px;
+				left: 55px;
+				background-color: black;
+				border-radius: 25px/15px;
+				z-index: 2;
+				transition: 0.5s;
+			}
+			.nose_mouth .nose:hover{
+				top: 5px;
+			}
+			.nose_mouth .mouth{
+				position: absolute;
+				width: 140px;
+				height: 50px;
+				top: 25px;
+				left: 10px;
+				/*border: 1px solid red;*/
+			}
+			.nose_mouth .mouth .mouth_t{
+				position: absolute;
+				width: 120px;
+				height: 60px;
+				top: -18px;
+				left: 10px;
+				background-color: #986b2a;
+				border-radius: 60px/30px;
+				z-index: 1;
+				transition: 0.5s;
+			}
+			.nose_mouth .mouth .mouth_t:hover{
+				top: -15px;
+				left: 0;
+			}
+			.nose_mouth .mouth .mouth_b{
+				position: absolute;
+				width: 100px;
+				height: 50px;
+				top: 0;
+				left: 20px;
+				background-color: black;
+				border-radius: 50px/25px;
+			}
+			.body_l{
+				position: absolute;
+				width: 60px;
+				height: 180px;
+				top: 265px;
+				left: 10px;
+				background-color: #f6d318;
+				border-radius: 30px/90px;
+				transform: rotate(30deg);
+			}
+			.body {
+				position: absolute;
+				width: 180px;
+				height: 300px;
+				top: 200px;
+				left: 60px;
+				background-color: #f6d318;
+				border-radius: 90px/150px;
+				z-index: -1;
+			}
+			.body_r{
+				position: absolute;
+				width: 60px;
+				height: 180px;
+				top: 265px;
+				left: 225px;
+				background-color: #f6d318;
+				border-radius: 30px/90px;
+				transform: rotate(-30deg);
+			}
+			.leg_l{
+				position: absolute;
+				width: 70px;
+				height: 160px;
+				top: 400px;
+				left: 75px;
+				background-color: #f6d318;
+				border-radius: 35px/80px;
+			}
+			.leg_r{
+				position: absolute;
+				width: 70px;
+				height: 160px;
+				top: 400px;
+				left: 150px;
+				background-color: #f6d318;
+				border-radius: 35px/80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="xiaoxiong">
+			<div class="head">
+				<div class="ears_l"></div>
+				<div class="ears_r"></div>
+				<div class="face">
+					<div class="eye">
+						<div class="eye_l">
+							<div></div>
+						</div>
+						<div class="eye_r">
+							<div></div>
+						</div>
+					</div>
+					<div class="nose_mouth">
+						<div class="nose"></div>
+						<div class="mouth">
+							<div class="mouth_t"></div>
+							<div class="mouth_b"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="body_l"></div>
+			<div class="body"></div>
+			<div class="body_r"></div>
+			<div class="leg_l"></div>
+			<div class="leg_r"></div>
+		</div>
+
+	</body>
+
+</html>

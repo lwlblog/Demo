@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background-color: red;
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function Honglvdeng() {
+				this.dom = document.createElement("div");
+				document.body.appendChild(this.dom);
+				this.color = 0;
+				var self = this;
+				this.dom.onclick = function() {
+					self.color++;
+					switch(self.color) {
+						case 0:
+							self.dom.style.backgroundColor = "red";
+							break;
+						case 1:
+							self.dom.style.backgroundColor = "yellow";
+							break;
+						case 2:
+							self.dom.style.backgroundColor = "green";
+							break;
+						default:
+							self.color = 0;
+							self.dom.style.backgroundColor = "red";
+					}
+				}
+			}
+			new Honglvdeng();
+			new Honglvdeng();
+			new Honglvdeng();
+		</script>
+	</body>
+
+</html>

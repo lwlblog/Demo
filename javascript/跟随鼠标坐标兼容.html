@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 400px;
+				height: 200px;
+				margin: 200px auto;
+				background-color: yellow;
+				color: red;
+				text-align: center;
+				line-height: 200px;
+				font-size: 3em;
+			}
+			span{
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				background-color: red;
+				border: 10px solid red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var div = document.getElementsByTagName('div')[0];
+				var span = document.getElementsByTagName('span')[0];
+				document.onmousemove = function(event){
+					//兼容IE和火狐
+					event = event || window.event;
+					//相当于
+//					if(!event){
+//						event = window.event;
+//					}
+					var x = event.clientX;
+					var y = event.clientY;
+					div.innerHTML = "x:"+x+" y:"+y;
+					
+					//span跟随鼠标运动
+					span.style.top = y+'px';
+					span.style.left = x+'px';
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<div></div>
+		<span></span>
+	</body>
+</html>

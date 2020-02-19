@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>starts</title>
+    <style>*{margin: 0; padding: 0;}</style>
+</head>
+<body>
+    <canvas id="canvas" style="display: block; background-color: black;">
+        当前浏览器不支持canvas，请更换浏览器后再试
+    </canvas>
+    <script>
+        var WIDTH, HEIGHT 
+        window.onload = function(){
+            /** @type {HTMLCanvasElement} */ 
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d')
+            // 画布宽高
+            WIDTH = document.documentElement.clientWidth
+            HEIGHT = document.documentElement.clientHeight
+            canvas.width = WIDTH
+            canvas.height = HEIGHT
+
+            for(var i = 0; i < 100; i ++){
+                var r = Math.random()*10 + 10,
+                    x = Math.random()*(WIDTH - 2*r) + r,
+                    y = Math.random()*(HEIGHT - 2*r) + r,
+                    a = Math.random()*360
+                drawStart(context, x, y, r/2, r, a)
+            }
+        }
+        function drawStart(cxt, x, y, r, R, rot = 0){
+            cxt.beginPath()
+            for(var i = 0; i < 5; i ++){
+                cxt.lineTo(Math.cos((18 + i*72 - rot)/180 * Math.PI) * R + x,
+                           -Math.sin((18 + i*72 - rot)/180 * Math.PI) * R + y)
+                cxt.lineTo(Math.cos((54 + i*72 - rot)/180 * Math.PI) * r + x, 
+                           -Math.sin((54 + i*72 - rot)/180 * Math.PI) * r + y)
+            }
+            cxt.closePath()
+            cxt.fillStyle = 'yellow'
+            cxt.fill()
+        }
+    </script>
+</body>
+</html>

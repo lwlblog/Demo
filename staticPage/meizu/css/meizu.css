@@ -1,0 +1,147 @@
+body,html,ul,li,a,form,input{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+ul,li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.content{
+	width: 1240px;
+	margin: 0 auto;
+}
+/*初始化*/
+.top{
+	width: 100%;
+	height: 36px;
+	background-color: #515151;
+}
+.top_nav{
+	height: 36px;
+}
+.top_nav ul li{
+	float: left;
+}
+.top_nav ul li a{
+	display: block;
+	height: 36px;
+	font-size: 14px;
+	color: #aaa;
+	line-height: 36px;
+}
+.top_nav ul li a:hover{
+	color: #ececec;
+}
+.top_nav .fl li{
+	margin-right: 22px;
+}
+.top_nav .fr .select{
+	margin-right: 30px;
+}
+.top_nav .fr span{
+	display: block;
+	width: 14px;
+	height: 36px;
+	margin-right:10px;
+	background: url(../img/phone.png) no-repeat center center;
+}
+/*顶部导航结束*/
+.header{
+	width: 100%;
+	height: 82px;
+	background-color: #fff;
+}
+.header_con{
+	height: 82px;
+}
+.header_logo a{
+	display: block;
+	width: 140px;
+	height: 82px;
+	background: url(../img/logo.png) no-repeat center center;
+}
+.header_shopping{
+	display: block;
+	width: 29px;
+	height: 29px;
+	margin: 27px 12px 0 8px;
+	background: url(../img/shopping.jpg) no-repeat center center;
+}
+.header_login{
+	padding: 27px 12px 0 15px;
+}
+.header_con form{
+	width: 170px;
+	height: 30px;
+	border: 1px solid #ccc;
+	margin: 26px 5px 0 10px;
+}
+.header_con form input{
+	border: 0;
+	color: #999;
+	width: 130px;
+	font-size: 12px;
+	line-height: 30px;
+	padding-left: 10px;
+	outline: none;
+}
+.header_con form button{
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	border: 0;
+	background: url(../img/fdj.PNG) no-repeat;
+}
+.header_nav li{
+	display: block;
+	float: left;
+	width: 104px;
+	height: 82px;
+	text-align: center;
+	line-height: 82px;
+}
+.header_nav li a{
+	color: #515151;
+}
+.header_nav li a:hover{
+	color: #31a5e7;
+}
+/*头部导航结束*/
+.banner{
+	width: 100%;
+	height: 500px;
+	background-color: #f4f4f4;
+}
+.banner_con{
+	height: 500px;
+	background: url(../img/banner.PNG) no-repeat;
+	background-size: auto 500px; 
+}
+.banner_con .l_nav{
+	width: 303px;
+	height: 456px;
+	padding-top: 17px;
+	background-color: rgba(0,0,0,0.5);
+}
+.banner_con .l_nav li a{
+	display: block;
+	height: 57px;
+	line-height: 57px;
+	margin-left: 38px;
+	color: #fff;
+}
+.banner_con .l_nav li a:hover{
+	color: #31a5e7;
+	transition: 0.5s;
+}
+/*banner部分结束*/

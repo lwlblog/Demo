@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+		<style type="text/css">
+			.v-enter,.v-leave-to{
+	        	opacity: 0;
+	        	transform: translateX(150px);
+	        }
+	        .v-enter-active, .v-leave-active {
+				transition: .5s;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<a href="#" @click.prevent="comName='land'">登陆</a>
+			<a href="#" @click.prevent="comName='logon'">注册</a>
+			<!--通过out-in属性设置组件切换时的模式-->
+			<transition mode="out-in">
+				<component :is="comName"></component>
+			</transition>
+			
+		</div>
+		<script type="text/javascript">
+			
+			Vue.component('land',{
+				template:'<div>登陆页面</div>',
+			});
+			Vue.component('logon',{
+				template:'<div>注册页面</div>',
+			});
+			//创建vue对象
+			var vm = new Vue({
+				el: '#app',
+				data: {
+					flag: true,
+					comName:"land"
+				},
+				methods:{
+					
+				}
+			})
+		</script>
+	</body>
+</html>

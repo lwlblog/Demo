@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,ol{
+				list-style: none;
+			}
+			body{
+				background-color: #ddd;
+			}
+			
+			.box{
+				width: 600px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				padding: 5px;
+				border: 1px solid #999;
+			}
+			.box div{
+				position: relative;
+				width: 600px;
+				height: 200px;
+				overflow: hidden;
+			}
+			.box ul{
+				width: 9999px;
+				position: absolute;
+			}
+			.box ul li{
+				float: left;
+				width: 600px;
+				height: 200px;
+			}
+			.box ol{
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			.box ol li{
+				width: 20px;
+				height: 20px;
+				float: left;
+				margin-left: 5px;
+				border: 1px solid #CCCCCC;
+				background: #333333;
+				color: #FFF;
+				font-size: 12px;
+				line-height: 20px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.box ol .focus{
+				background: #FF6600;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var timer = null;//定义默认值，也可以直接写var timer;
+				var num = 0;//定义累加器
+				//自动播放
+				function play(){
+					clearInterval(timer);
+					timer = setInterval(function(){
+						num++;
+						if(num>3){
+							num = 0;
+						}
+						$('.box ul').animate({left:-num*600})
+						$('.box ol li').eq(num).addClass('focus').siblings().removeClass('focus')
+					},2000)
+				}
+				play()
+				//鼠标旋浮在上面停止播放,鼠标移走重新播放
+				$('.box').hover(function(){
+					clearInterval(timer);
+				},function(){
+					play()
+				})
+				//点击角标图片跟着切换
+				$('.box ol li').click(function(){
+					$(this).addClass('focus').siblings().removeClass('focus')
+					$('.box ul').animate({left:-$(this).index()*600})
+					//同步播放注意事项
+					num = $(this).index();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<div>
+				<ul>
+					<li><img src="img/lbt1.jpg" alt="" width="600px" height="200px" /></li>
+					<li><img src="img/lbt2.jpg" alt="" width="600px" height="200px" /></li>
+					<li><img src="img/lbt3.jpg" alt="" width="600px" height="200px" /></li>
+					<li><img src="img/lbt4.png" alt="" width="600px" height="200px" /></li>
+				</ul>
+			</div>
+			
+			<ol>
+				<li class="focus">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+		</div>
+	</body>
+</html>

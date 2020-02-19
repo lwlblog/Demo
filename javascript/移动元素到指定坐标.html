@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			function text() {
+				var box = document.getElementById("box");
+				box.style.position = "absolute";
+				box.style.left = "500px";
+				box.style.top = "200px";
+				move("box", 300, 100, 10);
+			}
+
+			function move(elementID, final_x, final_y, interval) {
+				var box = document.getElementById(elementID);
+				var xpos = parseInt(box.style.left);
+				var ypos = parseInt(box.style.top);
+				var v = Math.abs((final_y - ypos) / (final_x - xpos));
+				var set = setInterval(function() {
+					if(xpos < final_x) {
+						xpos++;
+					}
+					if(xpos > final_x) {
+						xpos--;
+					}
+					if(ypos < final_y) {
+						ypos += v;
+					}
+					if(ypos > final_y) {
+						ypos -= v;
+					}
+					if(xpos == final_x) {
+						//console.log(x + " " + y);
+						clearInterval(set)
+					};
+					box.style.left = xpos + "px";
+					box.style.top = ypos + "px";
+				}, interval);
+			}
+			text();
+		</script>
+	</body>
+
+</html>

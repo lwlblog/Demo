@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			span{
+				display: block;
+				width: 100px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				background-color: #ccc;
+				float: left;
+				-webkit-user-select: none;/*文字不被选中*/
+				cursor: pointer;
+			}
+			.box{
+				width: 300px;
+				margin: 200px auto 0;
+			}
+			.box ul{
+				clear: both;
+			}
+			.box ul li{
+				display: none;
+				width: 300px;
+				height: 300px;
+				text-align: center;
+				font-size: 4em;
+				line-height: 300px;
+				background-color: yellow;
+			}
+			/*初始化样式*/
+			.box span:first-child{
+				background-color: yellow;
+			}
+			.box ul li:first-child{
+				display: block;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('span').mousemove(function(){
+					var index = $(this).index();
+					$(this).css('background','yellow').siblings().css('background','#ccc')
+					$('li').eq(index).show().siblings().hide()
+				})
+			})
+			//简写
+//			$(function(){
+//				$('span').mousemove(function(){
+//					$(this).css('background','yellow').siblings().css('background','#ccc')
+//					$('li').eq($(this).index();).show().siblings().hide()
+//				})
+//			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<p>
+				<span>今天</span>
+				<span>明天</span>
+				<span>后天</span>
+			</p>
+			<ul>
+				<li>今天</li>
+				<li>明天</li>
+				<li>后天</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

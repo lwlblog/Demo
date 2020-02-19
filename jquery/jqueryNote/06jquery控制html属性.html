@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border: 1px solid black;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button:eq(0)').click(function(){
+					$('div').attr('class','box')
+				});
+				$('button:eq(1)').click(function(){
+					alert($('div').attr('class'))
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>添加</button>
+		<button>访问</button>
+		<div>盒子</div>
+	</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style-type: none;
+			}
+			.box,.core,.num{
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+			.box{
+				width: 600px;
+				height: 600px;
+				border-radius: 50%;
+				border: 5px solid red;
+			}
+			.core{
+				width: 0px;
+				height: 0px;
+				border-radius: 50%;
+				background-color: blue;
+			}
+			.hour,.minute,.second{
+				position: absolute;
+				height: 25px;
+				background: linear-gradient(to right, #3023AE , #FF0099);
+				border-radius: 10% 90% 90% 10% / 50% 50% 50% 50% ;
+				transform-origin: 5px center;
+			}
+			.hour{
+				z-index: 10;
+				width: 140px;
+				transform: rotate(-90deg);
+			}
+			.minute{
+				z-index: 20;
+				width: 200px;
+			}
+			.second{
+				z-index: 30;
+				width: 260px;
+			}
+			.num{
+				width: 0px;
+				height: 0px;
+			}
+			.num li{
+				position: absolute;
+				margin-top: -25px;
+				width: 295px;
+				height: 50px;
+				transform-origin: left center;
+			}
+			.num span{
+				color: blueviolet;
+				font-size: 2em;
+				font-family: "楷体";
+				line-height: 50px;
+				text-align: center;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="num"></ul>
+			<div class="core">
+				<div class="hour"></div>
+				<div class="minute"></div>
+				<div class="second"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var num = document.querySelector('.num');
+			var cor = document.querySelector('.core');
+			var hour = document.querySelector('.hour');
+			var minute = document.querySelector('.minute');
+			var second = document.querySelector('.second');
+			//创建li函数
+			function cli(deg,number){
+				//创建li和span标签
+				var li = document.createElement('li');
+				var span = document.createElement('span');
+				//li旋转角度
+				li.style.transform = "rotate("+ deg +"deg)";
+				//span中时钟的数字
+				span.innerText = number;
+				//数字旋转为正常值
+				span.style.transform = "rotate("+ -deg +"deg)";
+				//插入DOM元素
+				li.appendChild(span);
+				num.appendChild(li);
+			}
+			//生成表盘函数
+			function click(){
+				for(var i = 1; i <= 12; i ++){
+					var deg = i * 360/12 - 90;
+					cli(deg,i);
+				}
+			}
+			//更新表针函数
+			function core(){
+				//获取时分秒
+				var time = new Date();
+				var h = time.getHours()%12;
+				var m = time.getMinutes();
+				var s = time.getSeconds();
+				//时针是24小时，需要转化成总的分钟数
+				hour.style.transform = "rotate("+ (h*30-90+m/60*30) +"deg)";
+				minute.style.transform = "rotate("+ (m*6-90) +"deg)";
+				second.style.transform = "rotate("+ (s*6-90) +"deg)";
+			}
+			window.onload = function(){
+				click();
+				setInterval(function(){
+					core();
+				},1000);
+			}
+		</script>
+	</body>
+</html>

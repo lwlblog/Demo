@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas-七巧板</title>
+</head>
+<body>
+    <canvas id="canvas" style="border: 1px solid #ccc; display: block; margin: 0 auto;">
+        当前浏览器不支持canvas，请更换浏览器后再试
+    </canvas>
+    <script>
+        var tangram = [
+            { trajectory: [ {x: 0, y: 0}, {x: 800, y: 0}, {x: 400, y: 400} ], color: '#caff67' },
+            { trajectory: [ {x: 0, y: 0}, {x: 400, y: 400}, {x: 0, y: 800} ], color: '#67becf' },
+            { trajectory: [ {x: 800, y: 0}, {x: 800, y: 400}, {x: 600, y: 600}, {x: 600, y: 200} ], color: '#ef3d61' },
+            { trajectory: [ {x: 600, y: 200}, {x: 600, y: 600}, {x: 400, y: 400} ], color: '#f9f51a' },
+            { trajectory: [ {x: 400, y: 400}, {x: 600, y: 600}, {x: 400, y: 800}, {x: 600, y: 600} ], color: '#a594c0' },
+            { trajectory: [ {x: 200, y: 600}, {x: 400, y: 800}, {x: 0, y: 800} ], color: '#fa8ecc' },
+            { trajectory: [ {x: 800, y: 400}, {x: 800, y: 800}, {x: 400, y: 800} ], color: '#f6ca29' }
+        ]
+        // 绘制
+        function draw(piece, cxt){
+            cxt.beginPath()
+            cxt.moveTo(piece.trajectory[0].x, piece.trajectory[0].y)
+            for(var j = 1; j < piece.trajectory.length; j ++){
+                cxt.lineTo(piece.trajectory[j].x, piece.trajectory[j].y)
+            }
+            cxt.closePath()
+            cxt.fillStyle = piece.color
+            cxt.fill();
+        }
+        window.onload = function(){
+            /** @type {HTMLCanvasElement} */ 
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d')
+            // 画布宽高
+            canvas.width = 800
+            canvas.height = 800
+            for(var i = 0; i < tangram.length; i ++){
+                draw(tangram[i], context)
+            }
+        }
+    </script>
+</body>
+</html>

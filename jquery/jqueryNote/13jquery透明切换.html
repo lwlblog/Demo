@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: yellowgreen;
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('button:eq(0)').click(function(){
+					$('div').fadeOut()
+				})
+				$('button:eq(1)').click(function(){
+					$('div').fadeIn()
+				})
+				$('button:eq(2)').click(function(){
+					$('div').fadeToggle()
+				})
+				$('button:eq(3)').click(function(){
+					$('div').fadeTo(300,0.2)//时间，透明度
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>淡出</button>
+		<button>淡入</button>
+		<button>切换</button>
+		<button>淡化</button>
+		<div>盒子</div>
+	</body>
+</html>

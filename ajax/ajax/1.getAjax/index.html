@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h2>用户注册</h2><h3></h3>
+		<input type="text" placeholder="请输入用户名" />
+		<script type="text/javascript">
+			var but = document.querySelector('input');
+			//失去焦点事件
+			but.onblur = function(){
+				//创建对象
+				var xhr = new XMLHttpRequest();
+				//设置请求行（get请求数据写在url后面）
+//				xhr.open('get','get_ajax.php?name=rose&skill=swim');
+				xhr.open('get','get_ajax.php?name='+this.value);
+				//设置请求头（get请求可以省略，post请求不发送数据也可以省略）
+				//xhr.setRequestHeader();
+				//设置回调函数
+				xhr.onload = function(){
+					console.log(xhr.responseText);
+					document.querySelector('h3').innerHTML = xhr.responseText;
+				}
+				//请求主题发送（get请求为空，或者写null，post请求数据写在这里，如果没有数据，直接写空或者写null）
+				xhr.send(null);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '.box',
+            data: {
+                todos:[
+                    { text: 'javascript' },
+                    { text: 'vue.js'},
+                    { text: 'jquery'}
+                ]
+            }
+        });
+    
+    </script>
+</body>
+</html>

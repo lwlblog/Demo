@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D骰子</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			html{
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				/*清除旋转带来的滚动条*/
+				overflow: hidden;
+				background-color: #000;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				transform-style: preserve-3d;
+				transform: rotateX(-20deg) rotateY(-45deg);
+				/*transition: 1s;*/
+			}
+			.box div{
+				position: absolute;
+				display: flex;
+				width: 200px;
+				height: 200px;
+				padding: 30px 40px;
+				box-sizing: border-box;
+				background-color: #FFFFFF;
+				border-radius: 30px;
+				box-shadow: 0 0 5px 1px;
+			}
+			.box ul{
+				display: flex;
+			}
+			.box li{
+				width: 40px;
+				height: 40px;
+				background-color: #000;
+				border-radius: 50%;
+			}
+			/*第一个*/
+			.box1{
+				transform: translateZ(100px);
+				justify-content: center;
+			}
+			.box1 ul{
+				align-self: center;
+			}
+			.box1 li{
+				width: 50px;
+				height: 50px;
+				background-color: red;
+			}
+			/*第二个，第三个*/
+			.box2,.box3{
+				justify-content: space-between;
+			}
+			.box3 ul:nth-of-type(2){
+				align-self: center;
+			}
+			.box2 ul:nth-of-type(2),
+			.box3 ul:nth-of-type(3){
+				align-self: flex-end;
+			}
+			.box2{
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.box3{
+				transform: rotateX(90deg) translateZ(-100px);
+			}
+			/*第四个*/
+			.box4{
+				justify-content: space-between;
+				transform: rotateY(90deg) translateZ(-100px);
+			}
+			.box4 ul{
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			/*第五个,第六个*/
+			.box5,.box6{
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.box5 ul,.box6 ul{
+				justify-content: space-between;
+			}
+			.box5 ul:nth-of-type(2){
+				justify-content: center;
+			}
+			.box5{
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.box6{
+				transform: translateZ(-100px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box1">
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+			<div class="box2">
+				<ul>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+			<div class="box3">
+				<ul>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+				</ul>
+			</div>
+			<div class="box4">
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="box5">
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="box6">
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+				<ul>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var box = document.querySelector('.box');
+			var dx,dy,mx,my,x = -20,y = -45;
+			var timer;
+			document.onmousedown = function(e){
+				clearInterval(timer);
+				dx = e.clientX;
+				dy = e.clientY;
+				console.log(1);
+				this.onmousemove = function(e){
+					mx = e.clientX;
+					my = e.clientY;
+					y += mx - dx;
+					x -= my - dy;
+					box.style.transform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
+					dx = mx;
+					dy = my;
+				}
+				this.onmouseup = function(){
+					this.onmousemove = null;
+					set();
+				}
+				return false;
+			}
+			function set(){
+				timer = setInterval(function(){
+					y ++;
+					if(y >= 360){
+						y = 0;
+					}
+					box.style.transform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg)';
+				},50);
+			}
+			set();
+		</script>
+	</body>
+</html>

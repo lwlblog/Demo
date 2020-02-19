@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<my-com1></my-com1>
+			<mycom2></mycom2>
+			<mycom3></mycom3>
+			<mycom4></mycom4>
+		</div>
+		<!--在被控制的 #app 外，使用template定义组件的结构-->
+		<template id="tmp">
+			<div>
+				<h1>hello word!</h1>
+				<p>使用template定义的组件3</p>
+			</div>
+		</template>
+		<script type="text/javascript">
+			//方式一，创建全局组件
+			var com1 = Vue.extend({
+				//指定组件的html结构，template中最外层根标签只能是一个
+				template:'<p>hello word!组件1</p>'
+			});
+			//生成实例对象：
+			//	如果myCom1是驼峰式命名，使用时用-分开，<my-com1></my-com1>
+			//	如果mycom1是常规命名，使用时直接使用,<mycom1></mycom1>
+			Vue.component('myCom1',com1);
+			
+			//简写形式（省去变量）
+//			Vue.component('myCom1',Vue.extend({
+//				template:'<p>hello word!组件</p>'
+//			}));
+			
+			//方式二，第二个参数可以直接传入一个对象
+			Vue.component('mycom2',{
+				//template中最外层根标签只能是一个
+				template:'<div><span>hello word!</span><span>组件2</span></div>'
+			});
+			
+			//方式三，直接引入在  #app 外通过template标签定义的id名
+			Vue.component('mycom3',{
+				//template中最外层根标签只能是一个
+				template:'#tmp'
+			});
+			
+			//创建vue对象
+			var vm = new Vue({
+				el:'#app',//选择器
+				data:{
+					//数据
+				},
+				methods:{
+					//函数
+				},
+				filters:{
+					//定义私有过滤器
+				},
+				directives:{
+					//定义私有指令
+				},
+				components:{
+					//定义私有组件
+					mycom4:{
+						template: '<p>私有组件4<p>'
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

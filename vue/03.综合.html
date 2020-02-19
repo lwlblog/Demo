@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue/vue.min.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input v-model="newTodo" v-on:keyup.enter="addTodo">
+        <ul>
+            <li v-for="(todo,i) in todos">
+                <span>{{todo.text}}</span>
+                <button v-on:click="removeTodo(i)">X</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                newTodo:'',
+                todos:[
+                    {text:'hello!'}
+                ]
+            },
+            methods:{
+                addTodo(){
+                    var text = this.newTodo.trim()
+                    if(text){
+                        this.todos.push({text});
+                        this.newTodo = '';
+                    }
+                },
+                removeTodo(index){
+                    this.todos.splice(index,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

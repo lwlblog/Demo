@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+//				$('button:eq(0)').click(function(){
+//					$('div').css('width','200px')//可以省略px
+//					$('div').css('height','200px')
+//					$('div').css('background-color','red')
+//				})
+				
+				$('button:eq(0)').click(function(){
+					$('div').css({width:'200px',height:'200px',backgroundColor:'yellow'})
+				})
+				
+//				$('button:eq(0)').click(function(){
+//					$('div').css({'width':'200px','height':'200px','background-color':'blue'})
+//				})
+
+				$('button:eq(1)').click(function(){
+					alert($('div').css('width'))
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>修改</button>
+		<button>访问</button>
+		<div>盒子</div>
+	</body>
+</html>
